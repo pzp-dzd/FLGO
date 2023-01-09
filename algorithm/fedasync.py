@@ -15,7 +15,7 @@ class Server(BasicServer):
     def iterate(self):
         # Scheduler periodically triggers the idle clients to locally train the model
         self.selected_clients = self.sample() if (cfg.clock.current_time%self.period)==0 or cfg.clock.current_time==1 else []
-        if len(self.selected_clients)>0:
+        if len(self.selected_clients) > 0:
             cfg.logger.info('Select clients {} at time {}'.format(self.selected_clients, cfg.clock.current_time))
         # Record the timestamp of the selected clients
         for cid in self.selected_clients: self.client_taus[cid] = self.current_round
