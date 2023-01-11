@@ -10,8 +10,14 @@ import torch
 
 
 class AbstractStateUpdater(metaclass=ABCMeta):
+    '''
+    An abstract class that defines client state updates and is used to construct a heterogeneous system for federated learning
+    '''
     @abstractmethod
     def flush(self):
+        '''
+        An abstract method to update user state
+        '''
         # flush the states for all the things in the system as time steps
         pass
 
@@ -19,11 +25,17 @@ random_seed_gen = None
 random_module = None
 
 def seed_generator(seed=0):
+    '''
+    Generate random seeds
+    '''
     while True:
         yield seed+1
         seed+=1
 
 def size_of_package(package):
+    '''
+    compute size of package
+    '''
     size = 0
     for v in package.values():
         if type(v) is torch.Tensor:
@@ -33,15 +45,39 @@ def size_of_package(package):
     return size
 
 class ElemClock:
+    '''
+    A class for emulating the system clock
+    '''
     class Elem:
+        '''
+        An element unit class in an analog clock
+
+        Args:
+            x(object):The object that needs to add an analog clock
+            time(int):The analog clock added to the object
+        '''
         def __init__(self, x, time):
             self.x = x
             self.time = time
 
         def __str__(self):
+            '''
+            Print string output
+
+            Return:
+                string output
+            '''
             return '{} at Time {}'.format(self.x, self.time)
 
         def __lt__(self, other):
+            '''
+            Compare clocks
+
+            Args:
+                other(int):The clock of another object
+            Return:
+                The results of the comparison
+            '''
             return self.time < other.time
 
     def __init__(self):
@@ -50,6 +86,12 @@ class ElemClock:
         self.state_updater = None
 
     def step(self, delta_t=1):
+        '''
+        The clock moves forward delta_t steps
+
+        Args:
+            delta_t(int):The number of steps forward
+        '''
         if delta_t < 0: raise RuntimeError("Cannot inverse time of system_simulator.cfg.clock.")
         if self.state_updater is not None:
             for t in range(delta_t):
@@ -57,17 +99,44 @@ class ElemClock:
         self.time += delta_t
 
     def set_time(self, t):
+        '''
+        Sets the current clock
+
+        Args:
+            t(int):The current clock
+        '''
         if t < self.time: raise RuntimeError("Cannot inverse time of system_simulator.cfg.clock.")
         self.time = t
 
     def put(self, x, time):
+        '''
+        Put the object into the clock queue
+
+        Args:
+            x(object):The object that needs to be put
+            time(int):The current clock
+        '''
         self.q.put_nowait(self.Elem(x, time))
 
     def get(self):
+        '''
+        Frees the object from the clock queue
+
+        Return:
+            The element that is released
+        '''
         if self.q.empty(): return None
         return self.q.get().x
 
     def get_until(self, t):
+        '''
+        Release all elements before the t moment
+
+        Args:
+            t(int):moment
+        Return:
+            res(list):The list of elements that were released
+        '''
         res = []
         while not self.empty():
             elem = self.q.get()
@@ -79,9 +148,21 @@ class ElemClock:
         return res
 
     def get_sofar(self):
+        '''
+        Release all elements before the current moment
+
+        Return:
+            res(list):The list of elements that were released
+        '''
         return self.get_until(self.current_time)
 
     def gets(self):
+        '''
+        Release all elements in the queue
+
+        Return:
+            res(list):The list of elements that were released
+        '''
         if self.empty(): return []
         res = []
         while not self.empty(): res.append(self.q.get())
@@ -89,10 +170,19 @@ class ElemClock:
         return res
 
     def clear(self):
+        '''
+        Empty the queue
+        '''
         while not self.empty():
             self.get()
 
     def conditionally_clear(self, f):
+        '''
+        Empty the queue elements that meet condition f
+
+        Args:
+            f:Conditional judgment function
+        '''
         buf = []
         while not self.empty(): buf.append(self.q.get())
         for elem in buf:
@@ -100,16 +190,34 @@ class ElemClock:
         return
 
     def empty(self):
+        '''
+        Determine whether the clock queue is empty
+        '''
         return self.q.empty()
 
     @ property
     def current_time(self):
+        '''
+        Get the current moment
+
+        Return:
+            The current moment
+        '''
         return self.time
 
     def register_state_updater(self, state_updater):
+        '''
+        Set the status update object
+        '''
         self.state_updater = state_updater
 
 class BasicStateUpdater(AbstractStateUpdater):
+    '''
+    The basic StateUpdater class
+
+    Args:
+        objects(list):The list of entities participating in the federated learning process
+    '''
     _STATE = ['offline', 'idle', 'selected', 'working', 'dropped']
     _VAR_NAMES = ['prob_available', 'prob_unavailable', 'prob_drop', 'working_amount', 'latency']
     def __init__(self, objects, *args, **kwargs):
@@ -137,9 +245,24 @@ class BasicStateUpdater(AbstractStateUpdater):
         self.state_counter = [{'dropped_counter': 0, 'latency_counter': 0, } for _ in self.clients]
 
     def get_client_with_state(self, state='idle'):
+        '''
+        Pick all clients that satisfy a certain state
+
+        Args:
+            state(str):State name
+        Return:
+            list of clients
+        '''
         return [cid for cid, cstate in enumerate(self.client_states) if cstate == state]
 
     def set_client_state(self, client_ids, state):
+        '''
+        Set client state
+
+        Args:
+            client_ids(list):The list of clients id
+            state(str):State name
+        '''
         if state not in self._STATE: raise RuntimeError('{} not in the default state'.format(state))
         if type(client_ids) is not list: client_ids = [client_ids]
         for cid in client_ids: self.client_states[cid] = state
@@ -151,18 +274,36 @@ class BasicStateUpdater(AbstractStateUpdater):
             self.reset_client_counter(client_ids)
 
     def set_client_latency_counter(self, client_ids = []):
+        '''
+        Set the training time countdown for each client
+
+        Args:
+            client_ids(list):The list of clients id
+        '''
         if type(client_ids) is not list: client_ids = [client_ids]
         for cid in client_ids:
             self.state_counter[cid]['dropped_counter'] = 0
             self.state_counter[cid]['latency_counter'] = self.variables[cid]['latency']
 
     def set_client_dropped_counter(self, client_ids = []):
+        '''
+        Set the dropout time countdown for each client
+
+        Args:
+            client_ids(list):The list of clients id
+        '''
         if type(client_ids) is not list: client_ids = [client_ids]
         for cid in client_ids:
             self.state_counter[cid]['latency_counter'] = 0
             self.state_counter[cid]['dropped_counter'] = self.server.get_tolerance_for_latency()
 
     def reset_client_counter(self, client_ids = []):
+        '''
+        Reset the training time countdown and dropout time countdown for each client
+
+        Args:
+            client_ids(list):The list of clients id
+        '''
         if type(client_ids) is not list: client_ids = [client_ids]
         for cid in client_ids:
             self.state_counter[cid]['dropped_counter'] = self.state_counter[cid]['latency_counter'] = 0
@@ -170,30 +311,77 @@ class BasicStateUpdater(AbstractStateUpdater):
 
     @property
     def idle_clients(self):
+        '''
+        Get the idle clients list
+
+        Return:
+            list of idle clients
+        '''
         return self.get_client_with_state('idle')
 
     @property
     def working_clients(self):
+        '''
+        Get the working clients list
+
+        Return:
+            list of working clients
+        '''
         return self.get_client_with_state('working')
 
     @property
     def offline_clients(self):
+        '''
+        Get the offline clients list
+
+        Return:
+            list of offline clients
+        '''
         return self.get_client_with_state('offline')
 
     @property
     def selected_clients(self):
+        '''
+        Get the selected clients list
+
+        Return:
+            list of selected clients
+        '''
         return self.get_client_with_state('selected')
 
     @property
     def dropped_clients(self):
+        '''
+        Get the dropped clients list
+
+        Return:
+            list of dropped clients
+        '''
         return self.get_client_with_state('dropped')
 
     def get_variable(self, client_ids, varname):
+        '''
+        Get the clients variable by varname
+
+        Args:
+            client_ids(list):The list of clients id
+            varname(str):The varname of clients
+        Return:
+            list of variable
+        '''
         if len(self.variables) ==0: return None
         if type(client_ids) is not list: client_ids = [client_ids]
         return [self.variables[cid][varname] if varname in self.variables[cid].keys() else None for cid in client_ids]
 
     def set_variable(self, client_ids, varname, values):
+        '''
+        Set the clients variable
+
+        Args:
+            client_ids(list):The list of clients id
+            varname(str):The varname of clients
+            values(list):The value list of variable
+        '''
         if type(client_ids) is not list: client_ids = [client_ids]
         assert len(client_ids) == len(values)
         for cid, v in zip(client_ids, values):
@@ -204,15 +392,30 @@ class BasicStateUpdater(AbstractStateUpdater):
         return
 
     def update_client_connectivity(self, client_ids, *args, **kwargs):
+        '''
+        Args:
+            client_ids(list):The list of clients id
+        '''
         return
 
     def update_client_completeness(self, client_ids, *args, **kwargs):
+        '''
+        Args:
+            client_ids(list):The list of clients id
+        '''
         return
 
     def update_client_responsiveness(self, client_ids, *args, **kwargs):
+        '''
+        Args:
+            client_ids(list):The list of clients id
+        '''
         return
 
     def flush(self):
+        '''
+        A function for updating user status, including updating user availability, and updating various state parameters such as dropout time countdown and training time countdown for each user according to availability
+        '''
         # +++++++++++++++++++ availability +++++++++++++++++++++
         # change self.variables[cid]['prob_available'] and self.variables[cid]['prob_unavailable'] for each client `cid`
         self.update_client_availability()
@@ -253,6 +456,15 @@ class BasicStateUpdater(AbstractStateUpdater):
 # Time Counter for any function which forces the `cfg.clock` to
 # step one unit of time once the decorated function is called
 def time_step(f):
+    '''
+    Time Counter for any function which forces the `cfg.clock` to step one unit of time once the decorated function is called
+
+    Args:
+        f:The function that needs to add a clock
+
+    Return:
+        f_timestep:The function after adding the clock
+    '''
     def f_timestep(*args, **kwargs):
         cfg.clock.step()
         return f(*args, **kwargs)
@@ -260,6 +472,14 @@ def time_step(f):
 
 # sampling phase
 def with_availability(sample):
+    '''
+    Refresh the current active state of the user before sampling to ensure that sampling is taken from active users
+
+    Args:
+        sample:The original sampling function
+    Return:
+        sample_with_availability:The function used to sample active users
+    '''
     @functools.wraps(sample)
     def sample_with_availability(self):
         available_clients = cfg.state_updater.idle_clients
@@ -282,6 +502,14 @@ def with_availability(sample):
 
 # communicating phase
 def with_dropout(communicate):
+    '''
+    Refresh the user's disconnected status before communication to ensure communication with online users
+
+    Args:
+        communicate:The original communicate function
+    Return:
+        communicate_with_dropout:The function used to communicate with online users
+    '''
     @functools.wraps(communicate)
     def communicate_with_dropout(self, selected_clients, asynchronous=False):
         if len(selected_clients) > 0:
@@ -314,6 +542,14 @@ def with_dropout(communicate):
 
 # local training phase
 def with_completeness(train):
+    '''
+    Before training, it is modified to suit the user's local training workload to suit the user's state
+
+    Args:
+        train:The original train function
+    Return:
+        train_with_incomplete_update:The training function to accommodate the user's local workload
+    '''
     @functools.wraps(train)
     def train_with_incomplete_update(self, model, *args, **kwargs):
         old_num_steps = self.num_steps
@@ -324,6 +560,14 @@ def with_completeness(train):
     return train_with_incomplete_update
 
 def with_clock(communicate):
+    '''
+    Used to simulate the time required for a user to communicate with the server
+
+    Args:
+        communicate:The original communicate function
+    Return:
+        communicate_with_clock:The communication function is used to simulate different communication times required for different users
+    '''
     def communicate_with_clock(self, selected_clients, asynchronous=False):
         cfg.state_updater.update_client_completeness(selected_clients)
         res = communicate(self, selected_clients, asynchronous)
