@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>experiment.logger package &#8212; FLGo 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="experiment-logger-package">
+<h1>experiment.logger package<a class="headerlink" href="#experiment-logger-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-experiment.logger.basic_logger">
+<span id="experiment-logger-basic-logger-module"></span><h2>experiment.logger.basic_logger module<a class="headerlink" href="#module-experiment.logger.basic_logger" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">experiment.logger.basic_logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.check_if_log">
+<span class="sig-name descname"><span class="pre">check_if_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">round</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eval_interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.check_if_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>For evaluating every ‘eval_interval’ rounds, check whether to log at ‘round’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.check_is_jsonable">
+<span class="sig-name descname"><span class="pre">check_is_jsonable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.check_is_jsonable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.early_stop">
+<span class="sig-name descname"><span class="pre">early_stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.early_stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.get_log_path">
+<span class="sig-name descname"><span class="pre">get_log_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.get_log_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.get_output_name">
+<span class="sig-name descname"><span class="pre">get_output_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.get_output_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.get_output_path">
+<span class="sig-name descname"><span class="pre">get_output_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.get_output_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.get_time_string">
+<span class="sig-name descname"><span class="pre">get_time_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.get_time_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.log_once">
+<span class="sig-name descname"><span class="pre">log_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.log_once" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the beginning of each communication round of Server.
+The round-wise operations of recording should be complemented here.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.organize_output">
+<span class="sig-name descname"><span class="pre">organize_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.organize_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will be called before saving self.output</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.output_to_jsonable_dict">
+<span class="sig-name descname"><span class="pre">output_to_jsonable_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.output_to_jsonable_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.register_variable">
+<span class="sig-name descname"><span class="pre">register_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.register_variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialze the logger in utils.fflow.initialize()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.save_output_as_json">
+<span class="sig-name descname"><span class="pre">save_output_as_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.save_output_as_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the self.output as .json file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.show_current_output">
+<span class="sig-name descname"><span class="pre">show_current_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yes_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['train',</span> <span class="pre">'test',</span> <span class="pre">'valid']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['dist']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.show_current_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.time_end">
+<span class="sig-name descname"><span class="pre">time_end</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.time_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a timestamp that ends the event ‘key’ and print the time interval of the event.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.time_start">
+<span class="sig-name descname"><span class="pre">time_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.time_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a timestamp of the event ‘key’ starting</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.basic_logger.Logger.write_var_into_output">
+<span class="sig-name descname"><span class="pre">write_var_into_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.basic_logger.Logger.write_var_into_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add variable ‘var_name’ and its value var_value to logger</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-experiment.logger.simple_logger">
+<span id="experiment-logger-simple-logger-module"></span><h2>experiment.logger.simple_logger module<a class="headerlink" href="#module-experiment.logger.simple_logger" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="experiment.logger.simple_logger.Logger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">experiment.logger.simple_logger.</span></span><span class="sig-name descname"><span class="pre">Logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.simple_logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#experiment.logger.basic_logger.Logger" title="experiment.logger.basic_logger.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.simple_logger.Logger.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.simple_logger.Logger.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to record the stastic variables that won’t change across rounds (e.g. local data size)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="experiment.logger.simple_logger.Logger.log_once">
+<span class="sig-name descname"><span class="pre">log_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#experiment.logger.simple_logger.Logger.log_once" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the beginning of each communication round of Server.
+The round-wise operations of recording should be complemented here.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-experiment.logger">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-experiment.logger" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FLGo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, wz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/experiment.logger.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

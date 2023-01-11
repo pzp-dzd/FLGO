@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>algorithm package &#8212; FLGo 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="algorithm-package">
+<h1>algorithm package<a class="headerlink" href="#algorithm-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-algorithm.TiFL">
+<span id="algorithm-tifl-module"></span><h2>algorithm.TiFL module<a class="headerlink" href="#module-algorithm.TiFL" title="Permalink to this heading">¶</a></h2>
+<p>This is a non-official implementation of the work ‘TiFL: A Tier-based Federated Learning System’
+(<a class="reference external" href="http://arxiv.org/abs/2001.09249">http://arxiv.org/abs/2001.09249</a>). This implementation refers to the github repository <a class="reference external" href="https://github.com/bacox/fltk">https://github.com/bacox/fltk</a>.
+Thanks for their great work.</p>
+<p>T: the number of tiers
+I: the interval of updating testing accuracy for each tier
+C: the degree of the diverse in the <cite>Credits</cite> for tiers. The smaller C is, the uniform the Credits distributes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.TiFL.</span></span><span class="sig-name descname"><span class="pre">Server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.fedbase.BasicServer" title="algorithm.fedbase.BasicServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server.change_probs">
+<span class="sig-name descname"><span class="pre">change_probs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server.change_probs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server.iterate">
+<span class="sig-name descname"><span class="pre">iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server.iterate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server.profiling_and_tiering">
+<span class="sig-name descname"><span class="pre">profiling_and_tiering</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server.profiling_and_tiering" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.TiFL.Server.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.TiFL.Server.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample the clients.
+:param
+:return</p>
+<blockquote>
+<div><p>a list of the ids of the selected clients</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-algorithm.fedasync">
+<span id="algorithm-fedasync-module"></span><h2>algorithm.fedasync module<a class="headerlink" href="#module-algorithm.fedasync" title="Permalink to this heading">¶</a></h2>
+<p>This is a non-official implementation of ‘Asynchronous Federated Optimization’ (<a class="reference external" href="http://arxiv.org/abs/1903.03934">http://arxiv.org/abs/1903.03934</a>).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.fedasync.Server">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.fedasync.</span></span><span class="sig-name descname"><span class="pre">Server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedasync.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.fedbase.BasicServer" title="algorithm.fedbase.BasicServer"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicServer</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedasync.Server.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedasync.Server.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedasync.Server.iterate">
+<span class="sig-name descname"><span class="pre">iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedasync.Server.iterate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedasync.Server.s">
+<span class="sig-name descname"><span class="pre">s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_tau</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedasync.Server.s" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-algorithm.fedavg">
+<span id="algorithm-fedavg-module"></span><h2>algorithm.fedavg module<a class="headerlink" href="#module-algorithm.fedavg" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-algorithm.fedbase">
+<span id="algorithm-fedbase-module"></span><h2>algorithm.fedbase module<a class="headerlink" href="#module-algorithm.fedbase" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.fedbase.</span></span><span class="sig-name descname"><span class="pre">BasicClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.get_batch_data">
+<span class="sig-name descname"><span class="pre">get_batch_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.get_batch_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the batch of data
+:return:</p>
+<blockquote>
+<div><p>a batch of data</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.get_time_response">
+<span class="sig-name descname"><span class="pre">get_time_response</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.get_time_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the latency amount of the client
+:return: self.latency_amount if client not dropping out</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.is_dropped">
+<span class="sig-name descname"><span class="pre">is_dropped</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.is_dropped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the client drops out during communicating.
+:param
+:return</p>
+<blockquote>
+<div><p>True if the client was being dropped</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.is_idle">
+<span class="sig-name descname"><span class="pre">is_idle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.is_idle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the client is active to participate training.
+:param
+:return</p>
+<blockquote>
+<div><p>True if the client is active according to the active_rate else False</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.is_working">
+<span class="sig-name descname"><span class="pre">is_working</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.is_working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.pack">
+<span class="sig-name descname"><span class="pre">pack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Packing the package to be send to the server. The operations of compression
+of encryption of the package should be done here.
+:param</p>
+<blockquote>
+<div><p>model: the locally trained model</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:return</dt><dd><p>package: a dict that contains the necessary information for the server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.register_server">
+<span class="sig-name descname"><span class="pre">register_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.register_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.reply">
+<span class="sig-name descname"><span class="pre">reply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">svr_pkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reply to server with the transmitted package.
+The whole local procedure should be planned here.
+The standard form consists of three procedure:
+unpacking the server_package to obtain the global model,
+training the global model, and finally packing the updated
+model into client_package.
+:param</p>
+<blockquote>
+<div><p>svr_pkg: the package received from the server</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client_pkg: the package to be send to the server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.set_batch_size">
+<span class="sig-name descname"><span class="pre">set_batch_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.set_batch_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.set_data">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'train'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.set_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.set_learning_rate">
+<span class="sig-name descname"><span class="pre">set_learning_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.set_learning_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>set the learning rate of local training
+:param lr:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.set_local_epochs">
+<span class="sig-name descname"><span class="pre">set_local_epochs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.set_local_epochs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.set_model">
+<span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>set self.model
+:param model:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.test">
+<span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.train_loss">
+<span class="sig-name descname"><span class="pre">train_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.train_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the task specified loss of the model on local training data
+:param model:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.unpack">
+<span class="sig-name descname"><span class="pre">unpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">received_pkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack the package received from the server
+:param</p>
+<blockquote>
+<div><p>received_pkg: a dict contains the global model as default</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the unpacked information that can be rewritten</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.update_device">
+<span class="sig-name descname"><span class="pre">update_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dev</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.update_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update running-time GPU device to the inputted dev, including change the client’s device and the task_calculator’s device
+:param</p>
+<blockquote>
+<div><p>dev: target dev</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicClient.valid_loss">
+<span class="sig-name descname"><span class="pre">valid_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicClient.valid_loss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the task specified loss of the model on local validating data
+:param model:
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.fedbase.</span></span><span class="sig-name descname"><span class="pre">BasicServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.aggregate">
+<span class="sig-name descname"><span class="pre">aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregate the locally improved models.
+:param</p>
+<blockquote>
+<div><p>models: a list of local models</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:return</dt><dd><p>the averaged result</p>
+</dd>
+</dl>
+<p>pk = nk/n where n=self.data_vol
+K = <a href="#id13"><span class="problematic" id="id14">|S_t|</span></a>
+N = <a href="#id15"><span class="problematic" id="id16">|S|</span></a>
+————————————————————————————————————————-</p>
+<blockquote>
+<div><p>weighted_scale                 <a href="#id1"><span class="problematic" id="id2">|</span></a>uniform (default)          <a href="#id3"><span class="problematic" id="id4">|</span></a>weighted_com (original fedavg)   <a href="#id5"><span class="problematic" id="id6">|</span></a>other</p>
+</div></blockquote>
+<p>N/K * Σpk * model_k             <a href="#id7"><span class="problematic" id="id8">|</span></a>1/K * Σmodel_k             <a href="#id9"><span class="problematic" id="id10">|</span></a>(1-Σpk) * w_old + Σpk * model_k  <a href="#id11"><span class="problematic" id="id12">|</span></a>Σ(pk/Σpk) * model_k</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.available_clients">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available_clients</span></span><a class="headerlink" href="#algorithm.fedbase.BasicServer.available_clients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all the available clients at current round.
+:param
+:return: a list of indices of currently available clients</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.communicate">
+<span class="sig-name descname"><span class="pre">communicate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selected_clients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asynchronous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.communicate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.communicate_with">
+<span class="sig-name descname"><span class="pre">communicate_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.communicate_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack the information that is needed for client_id to improve the global model
+:param</p>
+<blockquote>
+<div><p>client_id: the id of the client to communicate with</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:return</dt><dd><p>client_package: the reply from the client and will be ‘None’ if losing connection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.get_tolerance_for_latency">
+<span class="sig-name descname"><span class="pre">get_tolerance_for_latency</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.get_tolerance_for_latency" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.global_lr_scheduler">
+<span class="sig-name descname"><span class="pre">global_lr_scheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">current_round</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.global_lr_scheduler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control the step size (i.e. learning rate) of local training
+:param</p>
+<blockquote>
+<div><p>current_round: the current communication round</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.global_test">
+<span class="sig-name descname"><span class="pre">global_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataflag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'valid'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.global_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate accuracies and losses on clients’ local datasets
+:param</p>
+<blockquote>
+<div><p>dataflag: choose train data or valid data to evaluate</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:return</dt><dd><p>metrics: a dict contains the lists of each metric_value of the clients</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.init_algo_para">
+<span class="sig-name descname"><span class="pre">init_algo_para</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">algo_para</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.init_algo_para" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the algorithm-dependent hyper-parameters for the server and all the clients.
+:param</p>
+<blockquote>
+<div><p>algo_paras: the dict that defines the hyper-parameters (i.e. name, value and type) for the algorithm.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Example 1:</dt><dd><p>calling <cite>self.init_algo_para({‘u’:0.1})</cite> will set the attributions <cite>server.u</cite> and <cite>c.u</cite> as 0.1 with type float where <cite>c</cite> is an instance of <cite>CLient</cite>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once <cite>option[‘algo_para’]</cite> is not <cite>None</cite>, the value of the pre-defined hyperparameters will be replaced by the list of values in <cite>option[‘algo_para’]</cite>,
+which requires the length of <cite>option[‘algo_para’]</cite> is equal to the length of <cite>algo_paras</cite></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.iterate">
+<span class="sig-name descname"><span class="pre">iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.iterate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.pack">
+<span class="sig-name descname"><span class="pre">pack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.pack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pack the necessary information for the client’s local training.
+Any operations of compression or encryption should be done here.
+:param</p>
+<blockquote>
+<div><p>client_id: the id of the client to communicate with</p>
+</div></blockquote>
+<dl class="simple">
+<dt>:return</dt><dd><p>a dict that only contains the global model as default.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.register_clients">
+<span class="sig-name descname"><span class="pre">register_clients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clients</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.register_clients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the federated learning symtem where the global model is trained iteratively.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sample the clients.
+:param
+:return</p>
+<blockquote>
+<div><p>a list of the ids of the selected clients</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.set_data">
+<span class="sig-name descname"><span class="pre">set_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'test'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.set_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.test">
+<span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'test'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model on the test dataset owned by the server.
+:param</p>
+<blockquote>
+<div><p>model: the model need to be evaluated</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>metrics: specified by the task during running time (e.g. metric = [mean_accuracy, mean_loss] when the task is classification)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.unpack">
+<span class="sig-name descname"><span class="pre">unpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packages_received_from_clients</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.unpack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpack the information from the received packages. Return models and losses as default.
+:param</p>
+<blockquote>
+<div><p>packages_received_from_clients:</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>res: collections.defaultdict that contains several lists of the clients’ reply</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbase.BasicServer.wait_time">
+<span class="sig-name descname"><span class="pre">wait_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbase.BasicServer.wait_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-algorithm.fedbuff">
+<span id="algorithm-fedbuff-module"></span><h2>algorithm.fedbuff module<a class="headerlink" href="#module-algorithm.fedbuff" title="Permalink to this heading">¶</a></h2>
+<p>This is a non-official implementation of ‘Federated Learning with Buffered Asynchronous Aggregation’ (<a class="reference external" href="http://arxiv.org/abs/2106.06639">http://arxiv.org/abs/2106.06639</a>).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.fedbuff.Client">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.fedbuff.</span></span><span class="sig-name descname"><span class="pre">Client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbuff.Client" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.fedbase.BasicClient" title="algorithm.fedbase.BasicClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicClient</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbuff.Client.reply">
+<span class="sig-name descname"><span class="pre">reply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">svr_pkg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbuff.Client.reply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reply to server with the transmitted package.
+The whole local procedure should be planned here.
+The standard form consists of three procedure:
+unpacking the server_package to obtain the global model,
+training the global model, and finally packing the updated
+model into client_package.
+:param</p>
+<blockquote>
+<div><p>svr_pkg: the package received from the server</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>client_pkg: the package to be send to the server</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.fedbuff.Server">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.fedbuff.</span></span><span class="sig-name descname"><span class="pre">Server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">option</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbuff.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.fedasync.Server" title="algorithm.fedasync.Server"><code class="xref py py-class docutils literal notranslate"><span class="pre">Server</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbuff.Server.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbuff.Server.initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algorithm.fedbuff.Server.iterate">
+<span class="sig-name descname"><span class="pre">iterate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.fedbuff.Server.iterate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-algorithm">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-algorithm" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FLGo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, wz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/algorithm.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

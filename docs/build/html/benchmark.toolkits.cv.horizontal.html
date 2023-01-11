@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>benchmark.toolkits.cv.horizontal package &#8212; FLGo 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="benchmark-toolkits-cv-horizontal-package">
+<h1>benchmark.toolkits.cv.horizontal package<a class="headerlink" href="#benchmark-toolkits-cv-horizontal-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-benchmark.toolkits.cv.horizontal.image_classification">
+<span id="benchmark-toolkits-cv-horizontal-image-classification-module"></span><h2>benchmark.toolkits.cv.horizontal.image_classification module<a class="headerlink" href="#module-benchmark.toolkits.cv.horizontal.image_classification" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">benchmark.toolkits.cv.horizontal.image_classification.</span></span><span class="sig-name descname"><span class="pre">BuiltinClassGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">benchmark</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdata_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">builtin_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="benchmark.toolkits.html#benchmark.toolkits.base.BasicTaskGenerator" title="benchmark.toolkits.base.BasicTaskGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicTaskGenerator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download and load dataset into memory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator.partition">
+<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassGenerator.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the data</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">benchmark.toolkits.cv.horizontal.image_classification.</span></span><span class="sig-name descname"><span class="pre">BuiltinClassPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buildin_class</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="benchmark.toolkits.html#benchmark.toolkits.base.HorizontalTaskPipe" title="benchmark.toolkits.base.HorizontalTaskPipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">HorizontalTaskPipe</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TaskDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturbation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Subset</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset.dataset">
+<span class="sig-name descname"><span class="pre">dataset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dataset</span><span class="p"><span class="pre">[</span></span><span class="pre">T_co</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset.dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.TaskDataset.indices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">running_time_option</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.load_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.save_task">
+<span class="sig-name descname"><span class="pre">save_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.BuiltinClassPipe.save_task" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save a federated task created by TaskGenerator as a static file on the disk</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">benchmark.toolkits.cv.horizontal.image_classification.</span></span><span class="sig-name descname"><span class="pre">GeneralCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sgd'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="benchmark.toolkits.html#benchmark.toolkits.base.BasicTaskCalculator" title="benchmark.toolkits.base.BasicTaskCalculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicTaskCalculator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.compute_loss">
+<span class="sig-name descname"><span class="pre">compute_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.compute_loss" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – the model to train</p></li>
+<li><p><strong>data</strong> – the training dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict of train-one-step’s result, which should at least contains the key ‘loss’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.get_dataloader">
+<span class="sig-name descname"><span class="pre">get_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.get_dataloader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.test">
+<span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric = [mean_accuracy, mean_loss]
+:param model:
+:param dataset:
+:param batch_size:
+:return: [mean_accuracy, mean_loss]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.to_device">
+<span class="sig-name descname"><span class="pre">to_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralCalculator.to_device" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">benchmark.toolkits.cv.horizontal.image_classification.</span></span><span class="sig-name descname"><span class="pre">GeneralGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">benchmark</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdata_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="benchmark.toolkits.html#benchmark.toolkits.base.BasicTaskGenerator" title="benchmark.toolkits.base.BasicTaskGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">BasicTaskGenerator</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download and load dataset into memory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator.partition">
+<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#benchmark.toolkits.cv.horizontal.image_classification.GeneralGenerator.partition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Partition the data</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-benchmark.toolkits.cv.horizontal">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-benchmark.toolkits.cv.horizontal" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">FLGo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, wz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/benchmark.toolkits.cv.horizontal.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
